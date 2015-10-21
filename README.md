@@ -1,3 +1,3 @@
 # HcdDateTimePicker
  A beautiful DateTimePicker.
-![Alt Text](https://github.com/{user}/{repo}/HCDDateTimePickerView/demo.gif)
+![Alt Text](https://github.com/Jvaeyhcd/HcdDateTimePicker/blob/master/HCDDateTimePickerView/demo.gif)
