@@ -48,7 +48,6 @@
 {
     self = [super init];
     if (self) {
-        self.datePickerMode = DatePickerTimeMode;
         [self setTimeBroadcastView];
     }
     return self;
