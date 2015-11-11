@@ -43,7 +43,7 @@
     [self.view addSubview:button];
     
     // Do any additional setup after loading the view, typically from a nib.
-    dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDefaultDatetime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
+    dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerDateMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
     dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
         NSLog(@"%@", datetimeStr);
     };

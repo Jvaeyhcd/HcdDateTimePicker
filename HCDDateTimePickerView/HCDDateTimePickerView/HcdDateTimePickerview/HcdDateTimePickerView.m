@@ -48,6 +48,17 @@
 {
     self = [super init];
     if (self) {
+        self.datePickerMode = DatePickerTimeMode;
+        [self setTimeBroadcastView];
+    }
+    return self;
+}
+
+- (instancetype)initWithDatePickerMode:(DatePickerMode)datePickerMode defaultDateTime:(NSDate *)dateTime
+{
+    self = [super init];
+    if (self) {
+        self.datePickerMode = datePickerMode;
         [self setTimeBroadcastView];
     }
     return self;
@@ -79,7 +90,7 @@
     topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 30)];
     topView.backgroundColor = [UIColor colorWithHexString:@"0xFFFFFF"];
     
-    okBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 30)];
+    okBtn = [[UIButton alloc]initWithFrame:CGRectMake(WIDTH-60, 0, 60, 30)];
     okBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [okBtn setBackgroundColor:[UIColor clearColor]];
     [okBtn setTitleColor:[UIColor colorWithHexString:@"0x000000"] forState:UIControlStateNormal];
@@ -88,7 +99,7 @@
     okBtn.tag = kOKBtnTag;
     [self addSubview:okBtn];
     
-    cancleBtn = [[UIButton alloc]initWithFrame:CGRectMake(WIDTH-60, 0, 60, 30)];
+    cancleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 30)];
     cancleBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [cancleBtn setBackgroundColor:[UIColor clearColor]];
     [cancleBtn setTitleColor:[UIColor colorWithHexString:@"0x000000"] forState:UIControlStateNormal];
@@ -119,21 +130,40 @@
     UIView *bottomSepLine = [[UIView alloc] initWithFrame:CGRectMake(0, 180.5, WIDTH, 1.5)];
     [bottomSepLine setBackgroundColor:[UIColor colorWithHexString:@"0xEDEDED"]];
     [timeBroadcastView addSubview:bottomSepLine];
-    [self setYearScrollView];
-    [self setMonthScrollView];
-    [self setDayScrollView];
-    [self setHourScrollView];
-    [self setMinuteScrollView];
-    [self setSecondScrollView];
+    
+    if (self.datePickerMode == DatePickerDateMode) {
+        [self setYearScrollView];
+        [self setMonthScrollView];
+        [self setDayScrollView];
+    }
+    else if (self.datePickerMode == DatePickerTimeMode) {
+        [self setHourScrollView];
+        [self setMinuteScrollView];
+        [self setSecondScrollView];
+    }
+    else if (self.datePickerMode == DatePickerDatetimeMode) {
+        [self setYearScrollView];
+        [self setMonthScrollView];
+        [self setDayScrollView];
+        [self setHourScrollView];
+        [self setMinuteScrollView];
+        [self setSecondScrollView];
+    }
+    
     [timeBroadcastView addSubview:topView];
     [timeBroadcastView setFrame:CGRectMake(0, HEIGHT-100, WIDTH, kDatePickerHeight)];
 }
 //设置年月日时分的滚动视图
 - (void)setYearScrollView
 {
-    yearScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, 30, WIDTH*0.25, 190.0)];
-    NSInteger yearint = [self setNowTimeShow:0];
-    [yearScrollView setCurrentSelectPage:(yearint-2002)];
+    if (self.datePickerMode == DatePickerDatetimeMode) {
+        yearScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, 30, WIDTH*0.25, 190.0)];
+    } else if (self.datePickerMode == DatePickerDateMode) {
+        yearScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, 30, WIDTH*0.34, 190.0)];
+    }
+    
+    self.curYear = [self setNowTimeShow:0];
+    [yearScrollView setCurrentSelectPage:(self.curYear-2002)];
     yearScrollView.delegate = self;
     yearScrollView.datasource = self;
     [self setAfterScrollShowView:yearScrollView andCurrentPage:1];
@@ -142,9 +172,13 @@
 //设置年月日时分的滚动视图
 - (void)setMonthScrollView
 {
-    monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.25, 30, WIDTH*0.18, 190.0)];
-    NSInteger monthint = [self setNowTimeShow:1];
-    [monthScrollView setCurrentSelectPage:(monthint-3)];
+    if (self.datePickerMode == DatePickerDatetimeMode) {
+        monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.25, 30, WIDTH*0.18, 190.0)];
+    } else if (self.datePickerMode == DatePickerDateMode) {
+        monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.34, 30, WIDTH*0.33, 190.0)];
+    }
+    self.curMonth = [self setNowTimeShow:1];
+    [monthScrollView setCurrentSelectPage:(self.curMonth-3)];
     monthScrollView.delegate = self;
     monthScrollView.datasource = self;
     [self setAfterScrollShowView:monthScrollView andCurrentPage:1];
@@ -153,9 +187,13 @@
 //设置年月日时分的滚动视图
 - (void)setDayScrollView
 {
-    dayScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.43, 30, WIDTH*0.18, 190.0)];
-    NSInteger dayint = [self setNowTimeShow:2];
-    [dayScrollView setCurrentSelectPage:(dayint-3)];
+    if (self.datePickerMode == DatePickerDatetimeMode) {
+        dayScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.43, 30, WIDTH*0.18, 190.0)];
+    } else if (self.datePickerMode == DatePickerDateMode) {
+        dayScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.67, 30, WIDTH*0.33, 190.0)];
+    }
+    self.curDay = [self setNowTimeShow:2];
+    [dayScrollView setCurrentSelectPage:(self.curDay-3)];
     dayScrollView.delegate = self;
     dayScrollView.datasource = self;
     [self setAfterScrollShowView:dayScrollView andCurrentPage:1];
@@ -164,9 +202,13 @@
 //设置年月日时分的滚动视图
 - (void)setHourScrollView
 {
-    hourScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.61, 30, WIDTH*0.13, 190.0)];
-    NSInteger hourint = [self setNowTimeShow:3];
-    [hourScrollView setCurrentSelectPage:(hourint-2)];
+    if (self.datePickerMode == DatePickerDatetimeMode) {
+        hourScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.61, 30, WIDTH*0.13, 190.0)];
+    } else if (self.datePickerMode == DatePickerTimeMode) {
+        hourScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, 30, WIDTH*0.34, 190.0)];
+    }
+    self.curHour = [self setNowTimeShow:3];
+    [hourScrollView setCurrentSelectPage:(self.curHour-2)];
     hourScrollView.delegate = self;
     hourScrollView.datasource = self;
     [self setAfterScrollShowView:hourScrollView andCurrentPage:1];
@@ -175,9 +217,13 @@
 //设置年月日时分的滚动视图
 - (void)setMinuteScrollView
 {
-    minuteScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.74, 30, WIDTH*0.13, 190.0)];
-    NSInteger minuteint = [self setNowTimeShow:4];
-    [minuteScrollView setCurrentSelectPage:(minuteint-2)];
+    if (self.datePickerMode == DatePickerDatetimeMode) {
+        minuteScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.74, 30, WIDTH*0.13, 190.0)];
+    } else if (self.datePickerMode == DatePickerTimeMode) {
+        minuteScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.34, 30, WIDTH*0.33, 190.0)];
+    }
+    self.curMin = [self setNowTimeShow:4];
+    [minuteScrollView setCurrentSelectPage:(self.curMin-2)];
     minuteScrollView.delegate = self;
     minuteScrollView.datasource = self;
     [self setAfterScrollShowView:minuteScrollView andCurrentPage:1];
@@ -186,9 +232,13 @@
 //设置年月日时分的滚动视图
 - (void)setSecondScrollView
 {
-    secondScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.87, 30, WIDTH*0.13, 190.0)];
-    NSInteger secondint = [self setNowTimeShow:5];
-    [secondScrollView setCurrentSelectPage:(secondint-2)];
+    if (self.datePickerMode == DatePickerDatetimeMode) {
+        secondScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.87, 30, WIDTH*0.13, 190.0)];
+    } else if (self.datePickerMode == DatePickerTimeMode) {
+        secondScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.67, 30, WIDTH*0.33, 190.0)];
+    }
+    self.curSecond = [self setNowTimeShow:5];
+    [secondScrollView setCurrentSelectPage:(self.curSecond-2)];
     secondScrollView.delegate = self;
     secondScrollView.datasource = self;
     [self setAfterScrollShowView:secondScrollView andCurrentPage:1];
@@ -227,7 +277,19 @@
     }
     else if (scrollView == dayScrollView)
     {
-        return 31;
+        if (self.curMonth == 1 || self.curMonth == 3 || self.curMonth == 5 ||
+            self.curMonth == 7 || self.curMonth == 8 || self.curMonth == 10 ||
+            self.curMonth == 12) {
+            return 31;
+        } else if (self.curMonth == 2) {
+            if ([self isLeapYear:self.curYear]) {
+                return 29;
+            } else {
+                return 28;
+            }
+        } else {
+            return 30;
+        }
     }
     else if (scrollView == hourScrollView)
     {
@@ -367,18 +429,32 @@
     UILabel *minuteLabel = [[(UILabel*)[[minuteScrollView subviews] objectAtIndex:0] subviews] objectAtIndex:3];
     UILabel *secondLabel = [[(UILabel*)[[secondScrollView subviews] objectAtIndex:0] subviews] objectAtIndex:3];
     
-    NSInteger yearInt = yearLabel.tag + 1999;
-    NSInteger monthInt = monthLabel.tag;
-    NSInteger dayInt = dayLabel.tag;
-    NSInteger hourInt = hourLabel.tag - 1;
-    NSInteger minuteInt = minuteLabel.tag - 1;
-    NSInteger secondInt = secondLabel.tag - 1;
+    NSInteger month = monthLabel.tag;
+    NSInteger year = yearLabel.tag + 1999;
+    if (month != self.curMonth) {
+        self.curMonth = month;
+        [dayScrollView reloadData];
+        [dayScrollView setCurrentSelectPage:(self.curDay-3)];
+        [self setAfterScrollShowView:dayScrollView andCurrentPage:1];
+    }
+    if (year != self.curYear) {
+        self.curYear = year;
+        [dayScrollView reloadData];
+        [dayScrollView setCurrentSelectPage:(self.curDay-3)];
+        [self setAfterScrollShowView:dayScrollView andCurrentPage:1];
+    }
     
-    dateTimeStr = [NSString stringWithFormat:@"%ld-%ld-%ld %02ld:%02ld:%02ld",(long)yearInt,(long)monthInt,(long)dayInt,(long)hourInt,(long)minuteInt,(long)secondInt];
+    self.curMonth = monthLabel.tag;
+    self.curDay = dayLabel.tag;
+    self.curHour = hourLabel.tag - 1;
+    self.curMin = minuteLabel.tag - 1;
+    self.curSecond = secondLabel.tag - 1;
+    
+    dateTimeStr = [NSString stringWithFormat:@"%ld-%ld-%ld %02ld:%02ld:%02ld",(long)self.curYear,(long)self.curMonth,(long)self.curDay,(long)self.curHour,(long)self.curMin,(long)self.curSecond];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *selectTimeString = [NSString stringWithFormat:@"%ld-%02ld-%02ld %02ld:%02ld:%02ld",(long)yearInt,(long)monthInt,(long)dayInt,(long)hourInt,(long)minuteInt,(long)secondInt];
+    NSString *selectTimeString = [NSString stringWithFormat:@"%ld-%02ld-%02ld %02ld:%02ld:%02ld",(long)self.curYear,(long)self.curMonth,(long)self.curDay,(long)self.curHour,(long)self.curMin,(long)self.curSecond];
     NSDate *selectDate = [dateFormatter dateFromString:selectTimeString];
     NSDate *nowDate = [NSDate date];
     NSString *nowString = [dateFormatter stringFromDate:nowDate];
@@ -500,6 +576,15 @@
     }];
     
     
+}
+
+-(BOOL)isLeapYear:(NSInteger)year {
+    if ((year%4==0 && year %100 !=0) || year%400==0) {
+        return YES;
+    }else {
+        return NO;
+    }
+    return NO;
 }
 
 @end
