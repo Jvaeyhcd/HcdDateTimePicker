@@ -50,6 +50,7 @@ Then you should copy the **HCDDateTimePickerView** folder into your project.
         [dateTimePickerView showHcdDateTimePicker];
     }
 }
+
 ```
 ##TODO
 Add DatePickerDateMode,DatePickerTimeMode and DatePickerDatetimeMode
