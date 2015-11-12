@@ -31,11 +31,46 @@ Then you should copy the **HCDDateTimePickerView** folder into your project.
     
     [self.view addSubview:button];
     
+    NSArray *segmentItemArray = [[NSArray alloc] initWithObjects:@"日期",@"时间",@"日期和时间", nil];
+    UISegmentedControl * segmentControl = [[UISegmentedControl alloc] initWithItems:segmentItemArray];
+    segmentControl.frame = CGRectMake(50, 160, 220, 30);
+    [segmentControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
+    
+    [self.view addSubview:segmentControl];
+    
     // Do any additional setup after loading the view, typically from a nib.
-    dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDefaultDatetime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
-    dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
-        NSLog(@"%@", datetimeStr);
-    };
+    
+}
+
+-(void)segmentAction:(UISegmentedControl *)Seg{
+    
+    NSInteger Index = Seg.selectedSegmentIndex;
+    
+    switch (Index) {
+            
+        case 0:
+            dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerDateMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
+            dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
+                NSLog(@"%@", datetimeStr);
+            };
+            break;
+        case 1:
+            dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerTimeMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
+            dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
+                NSLog(@"%@", datetimeStr);
+            };
+            break;
+        case 2:
+            dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerDatetimeMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
+            dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
+                NSLog(@"%@", datetimeStr);
+            };
+            break;
+        default:
+            break;
+            
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
