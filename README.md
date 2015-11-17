@@ -8,6 +8,13 @@ git clone https://github.com/Jvaeyhcd/HcdDateTimePicker.git
 ```
 Then you should copy the **HCDDateTimePickerView** folder into your project.
 
+<video id="video" controls="" preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png">
+      <source id="mp4" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+      <source id="webm" src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm">
+      <source id="ogv" src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg">
+      <p>Your user agent does not support the HTML5 Video element.</p>
+</video>
+
 ![Alt Text](https://github.com/Jvaeyhcd/HcdDateTimePicker/blob/master/HCDDateTimePickerView/demo.gif)
 
 ```
@@ -31,11 +38,46 @@ Then you should copy the **HCDDateTimePickerView** folder into your project.
     
     [self.view addSubview:button];
     
+    NSArray *segmentItemArray = [[NSArray alloc] initWithObjects:@"日期",@"时间",@"日期和时间", nil];
+    UISegmentedControl * segmentControl = [[UISegmentedControl alloc] initWithItems:segmentItemArray];
+    segmentControl.frame = CGRectMake(50, 160, 220, 30);
+    [segmentControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
+    
+    [self.view addSubview:segmentControl];
+    
     // Do any additional setup after loading the view, typically from a nib.
-    dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDefaultDatetime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
-    dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
-        NSLog(@"%@", datetimeStr);
-    };
+    
+}
+
+-(void)segmentAction:(UISegmentedControl *)Seg{
+    
+    NSInteger Index = Seg.selectedSegmentIndex;
+    
+    switch (Index) {
+            
+        case 0:
+            dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerDateMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
+            dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
+                NSLog(@"%@", datetimeStr);
+            };
+            break;
+        case 1:
+            dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerTimeMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
+            dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
+                NSLog(@"%@", datetimeStr);
+            };
+            break;
+        case 2:
+            dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerDatetimeMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
+            dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
+                NSLog(@"%@", datetimeStr);
+            };
+            break;
+        default:
+            break;
+            
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +92,7 @@ Then you should copy the **HCDDateTimePickerView** folder into your project.
         [dateTimePickerView showHcdDateTimePicker];
     }
 }
+
 ```
 ##TODO
 Add DatePickerDateMode,DatePickerTimeMode and DatePickerDatetimeMode
