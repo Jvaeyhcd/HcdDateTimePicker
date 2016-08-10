@@ -51,7 +51,7 @@
 		0CF8A9FC1D5AFD7A005F198A = {
 			isa = PBXGroup;
 			children = (
-				0CF8AA1F1D5AFDD2005F198A /* HCDDateTimePicker */,
+				0CF8AA1F1D5AFDD2005F198A /* HcdDateTimePicker */,
 				0CF8AA071D5AFD7A005F198A /* HcdDateTimePickerDemo */,
 				0CF8AA061D5AFD7A005F198A /* Products */,
 			);
@@ -89,7 +89,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0CF8AA1F1D5AFDD2005F198A /* HCDDateTimePicker */ = {
+		0CF8AA1F1D5AFDD2005F198A /* HcdDateTimePicker */ = {
 			isa = PBXGroup;
 			children = (
 				0CF8AA201D5AFDD2005F198A /* HcdDateTimePickerView.h */,
@@ -99,6 +99,7 @@
 				0CF8AA241D5AFDD2005F198A /* UIColor+HcdCustom.h */,
 				0CF8AA251D5AFDD2005F198A /* UIColor+HcdCustom.m */,
 			);
+			name = HcdDateTimePicker;
 			path = HCDDateTimePicker;
 			sourceTree = SOURCE_ROOT;
 		};
