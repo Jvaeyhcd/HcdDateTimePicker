@@ -1,10 +1,10 @@
 # HcdDateTimePicker
-[![Version](https://img.shields.io/cocoapods/v/HcdCachePlayer.svg?style=flat)](http://cocoapods.org/pods/HcdCachePlayer)
+<!-- [![Version](https://img.shields.io/cocoapods/v/HcdCachePlayer.svg?style=flat)](http://cocoapods.org/pods/HcdCachePlayer)
 [![License](https://img.shields.io/github/license/Jvaeyhcd/HcdDateTimePicker.svg)](http://cocoapods.org/pods/HcdDateTimePicker)
 [![Platform](https://img.shields.io/cocoapods/p/HcdCachePlayer.svg)](http://cocoapods.org/pods/HcdCachePlayer)
 [![Tag](https://img.shields.io/github/tag/Jvaeyhcd/HcdCachePlayer.svg
 )](http://cocoapods.org/pods/HcdCachePlayer)
-[![Travis CI](https://api.travis-ci.org/Jvaeyhcd/HcdCachePlayer.svg?branch=master)](https://travis-ci.org/Jvaeyhcd/HcdCachePlayer)
+[![Travis CI](https://api.travis-ci.org/Jvaeyhcd/HcdCachePlayer.svg?branch=master)](https://travis-ci.org/Jvaeyhcd/HcdCachePlayer) -->
 [![Author](https://img.shields.io/badge/author-Jvaeyhcd-f07c3d.svg)](http://www.jvaeyhcd.cc)
 
 A beautiful DateTimePicker.
