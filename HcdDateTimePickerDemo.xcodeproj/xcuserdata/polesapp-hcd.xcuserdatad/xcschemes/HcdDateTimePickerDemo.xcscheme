@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0730"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "355D868C1BD77A0300E47508"
-               BuildableName = "HCDDateTimePickerView.app"
-               BlueprintName = "HCDDateTimePickerView"
-               ReferencedContainer = "container:HCDDateTimePickerView.xcodeproj">
+               BlueprintIdentifier = "0CF8AA041D5AFD7A005F198A"
+               BuildableName = "HcdDateTimePickerDemo.app"
+               BlueprintName = "HcdDateTimePickerDemo"
+               ReferencedContainer = "container:HcdDateTimePickerDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,34 +28,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "355D86A51BD77A0300E47508"
-               BuildableName = "HCDDateTimePickerViewTests.xctest"
-               BlueprintName = "HCDDateTimePickerViewTests"
-               ReferencedContainer = "container:HCDDateTimePickerView.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "355D86B01BD77A0300E47508"
-               BuildableName = "HCDDateTimePickerViewUITests.xctest"
-               BlueprintName = "HCDDateTimePickerViewUITests"
-               ReferencedContainer = "container:HCDDateTimePickerView.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "355D868C1BD77A0300E47508"
-            BuildableName = "HCDDateTimePickerView.app"
-            BlueprintName = "HCDDateTimePickerView"
-            ReferencedContainer = "container:HCDDateTimePickerView.xcodeproj">
+            BlueprintIdentifier = "0CF8AA041D5AFD7A005F198A"
+            BuildableName = "HcdDateTimePickerDemo.app"
+            BlueprintName = "HcdDateTimePickerDemo"
+            ReferencedContainer = "container:HcdDateTimePickerDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "355D868C1BD77A0300E47508"
-            BuildableName = "HCDDateTimePickerView.app"
-            BlueprintName = "HCDDateTimePickerView"
-            ReferencedContainer = "container:HCDDateTimePickerView.xcodeproj">
+            BlueprintIdentifier = "0CF8AA041D5AFD7A005F198A"
+            BuildableName = "HcdDateTimePickerDemo.app"
+            BlueprintName = "HcdDateTimePickerDemo"
+            ReferencedContainer = "container:HcdDateTimePickerDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "355D868C1BD77A0300E47508"
-            BuildableName = "HCDDateTimePickerView.app"
-            BlueprintName = "HCDDateTimePickerView"
-            ReferencedContainer = "container:HCDDateTimePickerView.xcodeproj">
+            BlueprintIdentifier = "0CF8AA041D5AFD7A005F198A"
+            BuildableName = "HcdDateTimePickerDemo.app"
+            BlueprintName = "HcdDateTimePickerDemo"
+            ReferencedContainer = "container:HcdDateTimePickerDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

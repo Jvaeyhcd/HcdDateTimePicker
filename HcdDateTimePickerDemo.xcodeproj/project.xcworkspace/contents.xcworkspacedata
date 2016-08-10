@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:HCDDateTimePickerView.xcodeproj">
+      location = "self:HcdDateTimePickerDemo.xcodeproj">
    </FileRef>
 </Workspace>

@@ -175,7 +175,6 @@
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
     int y = aScrollView.contentOffset.y;
     NSInteger page = aScrollView.contentOffset.y/((self.bounds.size.height/5));
-    NSLog(@"第%ld页",(long)page);
     
     if (y>2*(self.bounds.size.height/5)) {
         _curPage = [self validPageValue:_curPage+1];

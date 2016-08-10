@@ -1,0 +1,334 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0CF8AA0A1D5AFD7A005F198A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF8AA091D5AFD7A005F198A /* main.m */; };
+		0CF8AA0D1D5AFD7A005F198A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF8AA0C1D5AFD7A005F198A /* AppDelegate.m */; };
+		0CF8AA101D5AFD7A005F198A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF8AA0F1D5AFD7A005F198A /* ViewController.m */; };
+		0CF8AA131D5AFD7A005F198A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CF8AA111D5AFD7A005F198A /* Main.storyboard */; };
+		0CF8AA151D5AFD7A005F198A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CF8AA141D5AFD7A005F198A /* Assets.xcassets */; };
+		0CF8AA181D5AFD7A005F198A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CF8AA161D5AFD7A005F198A /* LaunchScreen.storyboard */; };
+		0CF8AA261D5AFDD2005F198A /* HcdDateTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF8AA211D5AFDD2005F198A /* HcdDateTimePickerView.m */; };
+		0CF8AA271D5AFDD2005F198A /* MXSCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF8AA231D5AFDD2005F198A /* MXSCycleScrollView.m */; };
+		0CF8AA281D5AFDD2005F198A /* UIColor+HcdCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF8AA251D5AFDD2005F198A /* UIColor+HcdCustom.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0CF8AA051D5AFD7A005F198A /* HcdDateTimePickerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HcdDateTimePickerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CF8AA091D5AFD7A005F198A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0CF8AA0B1D5AFD7A005F198A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0CF8AA0C1D5AFD7A005F198A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0CF8AA0E1D5AFD7A005F198A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0CF8AA0F1D5AFD7A005F198A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0CF8AA121D5AFD7A005F198A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0CF8AA141D5AFD7A005F198A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0CF8AA171D5AFD7A005F198A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0CF8AA191D5AFD7A005F198A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CF8AA201D5AFDD2005F198A /* HcdDateTimePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HcdDateTimePickerView.h; sourceTree = "<group>"; };
+		0CF8AA211D5AFDD2005F198A /* HcdDateTimePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HcdDateTimePickerView.m; sourceTree = "<group>"; };
+		0CF8AA221D5AFDD2005F198A /* MXSCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXSCycleScrollView.h; sourceTree = "<group>"; };
+		0CF8AA231D5AFDD2005F198A /* MXSCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXSCycleScrollView.m; sourceTree = "<group>"; };
+		0CF8AA241D5AFDD2005F198A /* UIColor+HcdCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HcdCustom.h"; sourceTree = "<group>"; };
+		0CF8AA251D5AFDD2005F198A /* UIColor+HcdCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HcdCustom.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0CF8AA021D5AFD7A005F198A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0CF8A9FC1D5AFD7A005F198A = {
+			isa = PBXGroup;
+			children = (
+				0CF8AA1F1D5AFDD2005F198A /* HCDDateTimePicker */,
+				0CF8AA071D5AFD7A005F198A /* HcdDateTimePickerDemo */,
+				0CF8AA061D5AFD7A005F198A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0CF8AA061D5AFD7A005F198A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0CF8AA051D5AFD7A005F198A /* HcdDateTimePickerDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0CF8AA071D5AFD7A005F198A /* HcdDateTimePickerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				0CF8AA0B1D5AFD7A005F198A /* AppDelegate.h */,
+				0CF8AA0C1D5AFD7A005F198A /* AppDelegate.m */,
+				0CF8AA0E1D5AFD7A005F198A /* ViewController.h */,
+				0CF8AA0F1D5AFD7A005F198A /* ViewController.m */,
+				0CF8AA111D5AFD7A005F198A /* Main.storyboard */,
+				0CF8AA141D5AFD7A005F198A /* Assets.xcassets */,
+				0CF8AA161D5AFD7A005F198A /* LaunchScreen.storyboard */,
+				0CF8AA191D5AFD7A005F198A /* Info.plist */,
+				0CF8AA081D5AFD7A005F198A /* Supporting Files */,
+			);
+			path = HcdDateTimePickerDemo;
+			sourceTree = "<group>";
+		};
+		0CF8AA081D5AFD7A005F198A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0CF8AA091D5AFD7A005F198A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0CF8AA1F1D5AFDD2005F198A /* HCDDateTimePicker */ = {
+			isa = PBXGroup;
+			children = (
+				0CF8AA201D5AFDD2005F198A /* HcdDateTimePickerView.h */,
+				0CF8AA211D5AFDD2005F198A /* HcdDateTimePickerView.m */,
+				0CF8AA221D5AFDD2005F198A /* MXSCycleScrollView.h */,
+				0CF8AA231D5AFDD2005F198A /* MXSCycleScrollView.m */,
+				0CF8AA241D5AFDD2005F198A /* UIColor+HcdCustom.h */,
+				0CF8AA251D5AFDD2005F198A /* UIColor+HcdCustom.m */,
+			);
+			path = HCDDateTimePicker;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0CF8AA041D5AFD7A005F198A /* HcdDateTimePickerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CF8AA1C1D5AFD7A005F198A /* Build configuration list for PBXNativeTarget "HcdDateTimePickerDemo" */;
+			buildPhases = (
+				0CF8AA011D5AFD7A005F198A /* Sources */,
+				0CF8AA021D5AFD7A005F198A /* Frameworks */,
+				0CF8AA031D5AFD7A005F198A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HcdDateTimePickerDemo;
+			productName = HcdDateTimePickerDemo;
+			productReference = 0CF8AA051D5AFD7A005F198A /* HcdDateTimePickerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0CF8A9FD1D5AFD7A005F198A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Polesapp;
+				TargetAttributes = {
+					0CF8AA041D5AFD7A005F198A = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 0CF8AA001D5AFD7A005F198A /* Build configuration list for PBXProject "HcdDateTimePickerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0CF8A9FC1D5AFD7A005F198A;
+			productRefGroup = 0CF8AA061D5AFD7A005F198A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0CF8AA041D5AFD7A005F198A /* HcdDateTimePickerDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0CF8AA031D5AFD7A005F198A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CF8AA181D5AFD7A005F198A /* LaunchScreen.storyboard in Resources */,
+				0CF8AA151D5AFD7A005F198A /* Assets.xcassets in Resources */,
+				0CF8AA131D5AFD7A005F198A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0CF8AA011D5AFD7A005F198A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CF8AA101D5AFD7A005F198A /* ViewController.m in Sources */,
+				0CF8AA0D1D5AFD7A005F198A /* AppDelegate.m in Sources */,
+				0CF8AA281D5AFDD2005F198A /* UIColor+HcdCustom.m in Sources */,
+				0CF8AA0A1D5AFD7A005F198A /* main.m in Sources */,
+				0CF8AA261D5AFDD2005F198A /* HcdDateTimePickerView.m in Sources */,
+				0CF8AA271D5AFDD2005F198A /* MXSCycleScrollView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0CF8AA111D5AFD7A005F198A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0CF8AA121D5AFD7A005F198A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0CF8AA161D5AFD7A005F198A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0CF8AA171D5AFD7A005F198A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0CF8AA1A1D5AFD7A005F198A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0CF8AA1B1D5AFD7A005F198A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0CF8AA1D1D5AFD7A005F198A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HcdDateTimePickerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jvaeyhcd.cc.HcdDateTimePickerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0CF8AA1E1D5AFD7A005F198A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HcdDateTimePickerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jvaeyhcd.cc.HcdDateTimePickerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0CF8AA001D5AFD7A005F198A /* Build configuration list for PBXProject "HcdDateTimePickerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CF8AA1A1D5AFD7A005F198A /* Debug */,
+				0CF8AA1B1D5AFD7A005F198A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0CF8AA1C1D5AFD7A005F198A /* Build configuration list for PBXNativeTarget "HcdDateTimePickerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CF8AA1D1D5AFD7A005F198A /* Debug */,
+				0CF8AA1E1D5AFD7A005F198A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0CF8A9FD1D5AFD7A005F198A /* Project object */;
+}

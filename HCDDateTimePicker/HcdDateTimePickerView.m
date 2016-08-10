@@ -172,7 +172,7 @@
 - (void)setMonthScrollView
 {
     if (self.datePickerMode == DatePickerDatetimeMode) {
-        monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.25, 30, WIDTH*0.18, 190.0)];
+        monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.25, 30, WIDTH*0.15, 190.0)];
     } else if (self.datePickerMode == DatePickerDateMode) {
         monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.34, 30, WIDTH*0.33, 190.0)];
     }
@@ -187,7 +187,7 @@
 - (void)setDayScrollView
 {
     if (self.datePickerMode == DatePickerDatetimeMode) {
-        dayScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.43, 30, WIDTH*0.18, 190.0)];
+        dayScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.40, 30, WIDTH*0.15, 190.0)];
     } else if (self.datePickerMode == DatePickerDateMode) {
         dayScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.67, 30, WIDTH*0.33, 190.0)];
     }
@@ -202,7 +202,7 @@
 - (void)setHourScrollView
 {
     if (self.datePickerMode == DatePickerDatetimeMode) {
-        hourScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.61, 30, WIDTH*0.13, 190.0)];
+        hourScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.55, 30, WIDTH*0.15, 190.0)];
     } else if (self.datePickerMode == DatePickerTimeMode) {
         hourScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, 30, WIDTH*0.34, 190.0)];
     }
@@ -217,7 +217,7 @@
 - (void)setMinuteScrollView
 {
     if (self.datePickerMode == DatePickerDatetimeMode) {
-        minuteScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.74, 30, WIDTH*0.13, 190.0)];
+        minuteScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.70, 30, WIDTH*0.15, 190.0)];
     } else if (self.datePickerMode == DatePickerTimeMode) {
         minuteScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.34, 30, WIDTH*0.33, 190.0)];
     }
@@ -232,7 +232,7 @@
 - (void)setSecondScrollView
 {
     if (self.datePickerMode == DatePickerDatetimeMode) {
-        secondScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.87, 30, WIDTH*0.13, 190.0)];
+        secondScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.85, 30, WIDTH*0.15, 190.0)];
     } else if (self.datePickerMode == DatePickerTimeMode) {
         secondScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.67, 30, WIDTH*0.33, 190.0)];
     }
@@ -319,25 +319,25 @@
     else if (scrollView == hourScrollView)
     {
         if (index < 10) {
-            l.text = [NSString stringWithFormat:@"0%ld",(long)index];
+            l.text = [NSString stringWithFormat:@"0%ld时",(long)index];
         }
         else
-            l.text = [NSString stringWithFormat:@"%ld",(long)index];
+            l.text = [NSString stringWithFormat:@"%ld时",(long)index];
     }
     else if (scrollView == minuteScrollView)
     {
         if (index < 10) {
-            l.text = [NSString stringWithFormat:@"0%ld",(long)index];
+            l.text = [NSString stringWithFormat:@"0%ld分",(long)index];
         }
         else
-            l.text = [NSString stringWithFormat:@"%ld",(long)index];
+            l.text = [NSString stringWithFormat:@"%ld分",(long)index];
     }
     else
         if (index < 10) {
-            l.text = [NSString stringWithFormat:@"0%ld",(long)index];
+            l.text = [NSString stringWithFormat:@"0%ld秒",(long)index];
         }
         else
-            l.text = [NSString stringWithFormat:@"%ld",(long)index];
+            l.text = [NSString stringWithFormat:@"%ld秒",(long)index];
     
     l.font = [UIFont systemFontOfSize:12];
     l.textAlignment = NSTextAlignmentCenter;
