@@ -38,7 +38,7 @@ pod setup
 pod install
 ```
 
-## Example Usage
+## Example
 ```
 HcdDateTimePickerView *dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerDateMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
 dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
