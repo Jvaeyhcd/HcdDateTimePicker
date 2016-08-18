@@ -56,6 +56,22 @@
     [btn3 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn3];
     
+    UIButton *btn4 = [[UIButton alloc]initWithFrame:CGRectMake(kBasePadding, CGRectGetMaxY(btn3.frame) + kBasePadding, kScreenWidth - 2*kBasePadding, 40)];
+    btn4.layer.cornerRadius = 4;
+    btn4.backgroundColor = [UIColor grayColor];
+    [btn4 setTitle:@"YEAR-MONTH" forState:UIControlStateNormal];
+    btn4.tag = 4;
+    [btn4 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn4];
+    
+    UIButton *btn5 = [[UIButton alloc]initWithFrame:CGRectMake(kBasePadding, CGRectGetMaxY(btn4.frame) + kBasePadding, kScreenWidth - 2*kBasePadding, 40)];
+    btn5.layer.cornerRadius = 4;
+    btn5.backgroundColor = [UIColor grayColor];
+    [btn5 setTitle:@"HOUR-MINUTE" forState:UIControlStateNormal];
+    btn5.tag = 5;
+    [btn5 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn5];
+    
 }
 
 - (void)btnClicked:(UIButton *)btn {
@@ -65,7 +81,7 @@
     
     switch (tag) {
         case 1:
-            dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerDatetimeMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
+            dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerDateTimeMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
             dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
                 NSLog(@"%@", datetimeStr);
                 weakSelf.timeLbl.text = datetimeStr;
@@ -80,6 +96,20 @@
             break;
         case 3:
             dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerTimeMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
+            dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
+                NSLog(@"%@", datetimeStr);
+                weakSelf.timeLbl.text = datetimeStr;
+            };
+            break;
+        case 4:
+            dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerMonthDayMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
+            dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
+                NSLog(@"%@", datetimeStr);
+                weakSelf.timeLbl.text = datetimeStr;
+            };
+            break;
+        case 5:
+            dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerHourMinuteMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
             dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
                 NSLog(@"%@", datetimeStr);
                 weakSelf.timeLbl.text = datetimeStr;

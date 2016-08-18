@@ -48,7 +48,11 @@ dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
 ```
 
 ## TODO
-Add DatePickerDateMode,DatePickerTimeMode and DatePickerDatetimeMode
+* [x] DatePickerDateMode
+* [x] DatePickerTimeMode
+* [x] DatePickerDateTimeMode
+* [x] DatePickerMonthDayMode
+* [x] DatePickerHourMinuteMode
 
 ## Contact me
 If you find some bugs or you have some suggest, please contact me or [post me an issue](https://github.com/Jvaeyhcd/HcdDateTimePicker/issues/new).Thank you!

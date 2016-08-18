@@ -140,13 +140,21 @@
         [self setMinuteScrollView];
         [self setSecondScrollView];
     }
-    else if (self.datePickerMode == DatePickerDatetimeMode) {
+    else if (self.datePickerMode == DatePickerDateTimeMode) {
         [self setYearScrollView];
         [self setMonthScrollView];
         [self setDayScrollView];
         [self setHourScrollView];
         [self setMinuteScrollView];
         [self setSecondScrollView];
+    }
+    else if (self.datePickerMode == DatePickerMonthDayMode) {
+        [self setMonthScrollView];
+        [self setDayScrollView];
+    }
+    else if (self.datePickerMode == DatePickerHourMinuteMode) {
+        [self setHourScrollView];
+        [self setMinuteScrollView];
     }
     
     [timeBroadcastView addSubview:topView];
@@ -155,7 +163,7 @@
 //设置年月日时分的滚动视图
 - (void)setYearScrollView
 {
-    if (self.datePickerMode == DatePickerDatetimeMode) {
+    if (self.datePickerMode == DatePickerDateTimeMode) {
         yearScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, 30, WIDTH*0.25, 190.0)];
     } else if (self.datePickerMode == DatePickerDateMode) {
         yearScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, 30, WIDTH*0.34, 190.0)];
@@ -171,10 +179,12 @@
 //设置年月日时分的滚动视图
 - (void)setMonthScrollView
 {
-    if (self.datePickerMode == DatePickerDatetimeMode) {
+    if (self.datePickerMode == DatePickerDateTimeMode) {
         monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.25, 30, WIDTH*0.15, 190.0)];
     } else if (self.datePickerMode == DatePickerDateMode) {
         monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.34, 30, WIDTH*0.33, 190.0)];
+    } else if (self.datePickerMode == DatePickerMonthDayMode) {
+        monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0, 30, WIDTH*0.5, 190.0)];
     }
     self.curMonth = [self setNowTimeShow:1];
     [monthScrollView setCurrentSelectPage:(self.curMonth-3)];
@@ -186,10 +196,12 @@
 //设置年月日时分的滚动视图
 - (void)setDayScrollView
 {
-    if (self.datePickerMode == DatePickerDatetimeMode) {
+    if (self.datePickerMode == DatePickerDateTimeMode) {
         dayScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.40, 30, WIDTH*0.15, 190.0)];
     } else if (self.datePickerMode == DatePickerDateMode) {
         dayScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.67, 30, WIDTH*0.33, 190.0)];
+    } else if (self.datePickerMode == DatePickerMonthDayMode) {
+        dayScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.5, 30, WIDTH*0.5, 190.0)];
     }
     self.curDay = [self setNowTimeShow:2];
     [dayScrollView setCurrentSelectPage:(self.curDay-3)];
@@ -201,10 +213,12 @@
 //设置年月日时分的滚动视图
 - (void)setHourScrollView
 {
-    if (self.datePickerMode == DatePickerDatetimeMode) {
+    if (self.datePickerMode == DatePickerDateTimeMode) {
         hourScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.55, 30, WIDTH*0.15, 190.0)];
     } else if (self.datePickerMode == DatePickerTimeMode) {
         hourScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, 30, WIDTH*0.34, 190.0)];
+    } else if (self.datePickerMode == DatePickerHourMinuteMode) {
+        hourScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, 30, WIDTH*0.5, 190.0)];
     }
     self.curHour = [self setNowTimeShow:3];
     [hourScrollView setCurrentSelectPage:(self.curHour-2)];
@@ -216,10 +230,12 @@
 //设置年月日时分的滚动视图
 - (void)setMinuteScrollView
 {
-    if (self.datePickerMode == DatePickerDatetimeMode) {
+    if (self.datePickerMode == DatePickerDateTimeMode) {
         minuteScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.70, 30, WIDTH*0.15, 190.0)];
     } else if (self.datePickerMode == DatePickerTimeMode) {
         minuteScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.34, 30, WIDTH*0.33, 190.0)];
+    } else if (self.datePickerMode == DatePickerHourMinuteMode) {
+        minuteScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.5, 30, WIDTH*0.5, 190.0)];
     }
     self.curMin = [self setNowTimeShow:4];
     [minuteScrollView setCurrentSelectPage:(self.curMin-2)];
@@ -231,7 +247,7 @@
 //设置年月日时分的滚动视图
 - (void)setSecondScrollView
 {
-    if (self.datePickerMode == DatePickerDatetimeMode) {
+    if (self.datePickerMode == DatePickerDateTimeMode) {
         secondScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.85, 30, WIDTH*0.15, 190.0)];
     } else if (self.datePickerMode == DatePickerTimeMode) {
         secondScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.67, 30, WIDTH*0.33, 190.0)];
