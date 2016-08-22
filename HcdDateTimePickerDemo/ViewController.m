@@ -67,10 +67,18 @@
     UIButton *btn5 = [[UIButton alloc]initWithFrame:CGRectMake(kBasePadding, CGRectGetMaxY(btn4.frame) + kBasePadding, kScreenWidth - 2*kBasePadding, 40)];
     btn5.layer.cornerRadius = 4;
     btn5.backgroundColor = [UIColor grayColor];
-    [btn5 setTitle:@"HOUR-MINUTE" forState:UIControlStateNormal];
+    [btn5 setTitle:@"MONTH-DAY" forState:UIControlStateNormal];
     btn5.tag = 5;
     [btn5 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn5];
+    
+    UIButton *btn6 = [[UIButton alloc]initWithFrame:CGRectMake(kBasePadding, CGRectGetMaxY(btn5.frame) + kBasePadding, kScreenWidth - 2*kBasePadding, 40)];
+    btn6.layer.cornerRadius = 4;
+    btn6.backgroundColor = [UIColor grayColor];
+    [btn6 setTitle:@"HOUR-MINUTE" forState:UIControlStateNormal];
+    btn6.tag = 6;
+    [btn6 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn6];
     
 }
 
@@ -102,13 +110,20 @@
             };
             break;
         case 4:
-            dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerMonthDayMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
+            dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerYearMonthMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
             dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
                 NSLog(@"%@", datetimeStr);
                 weakSelf.timeLbl.text = datetimeStr;
             };
             break;
         case 5:
+            dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerMonthDayMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
+            dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
+                NSLog(@"%@", datetimeStr);
+                weakSelf.timeLbl.text = datetimeStr;
+            };
+            break;
+        case 6:
             dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerHourMinuteMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:0]];
             dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
                 NSLog(@"%@", datetimeStr);

@@ -148,6 +148,10 @@
         [self setMinuteScrollView];
         [self setSecondScrollView];
     }
+    else if (self.datePickerMode == DatePickerYearMonthMode) {
+        [self setYearScrollView];
+        [self setMonthScrollView];
+    }
     else if (self.datePickerMode == DatePickerMonthDayMode) {
         [self setMonthScrollView];
         [self setDayScrollView];
@@ -167,6 +171,8 @@
         yearScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, 30, WIDTH*0.25, 190.0)];
     } else if (self.datePickerMode == DatePickerDateMode) {
         yearScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, 30, WIDTH*0.34, 190.0)];
+    } else if (self.datePickerMode == DatePickerYearMonthMode) {
+        yearScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, 30, WIDTH*0.5, 190.0)];
     }
     
     self.curYear = [self setNowTimeShow:0];
@@ -185,6 +191,8 @@
         monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.34, 30, WIDTH*0.33, 190.0)];
     } else if (self.datePickerMode == DatePickerMonthDayMode) {
         monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0, 30, WIDTH*0.5, 190.0)];
+    } else if (self.datePickerMode == DatePickerYearMonthMode) {
+        monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(WIDTH*0.5, 30, WIDTH*0.5, 190.0)];
     }
     self.curMonth = [self setNowTimeShow:1];
     [monthScrollView setCurrentSelectPage:(self.curMonth-3)];
