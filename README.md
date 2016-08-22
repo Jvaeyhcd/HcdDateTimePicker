@@ -51,6 +51,7 @@ dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
 * [x] DatePickerDateMode
 * [x] DatePickerTimeMode
 * [x] DatePickerDateTimeMode
+* [x] DatePickerYearMonthMode
 * [x] DatePickerMonthDayMode
 * [x] DatePickerHourMinuteMode
 
