@@ -28,6 +28,7 @@ typedef enum {
     DatePickerDateMode,
     DatePickerTimeMode,
     DatePickerDateTimeMode,
+    DatePickerYearMonthMode,
     DatePickerMonthDayMode,
     DatePickerHourMinuteMode
 }DatePickerMode;
