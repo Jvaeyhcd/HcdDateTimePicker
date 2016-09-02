@@ -114,7 +114,7 @@
 
 - (NSInteger)validPageValue:(NSInteger)value {
     
-    if(value == -1 ) value = _totalPages - 1;
+    if(value < 0 ) value = _totalPages + value;
     if(value == _totalPages+1) value = 1;
     if (value == _totalPages+2) value = 2;
     if(value == _totalPages+3) value = 3;
