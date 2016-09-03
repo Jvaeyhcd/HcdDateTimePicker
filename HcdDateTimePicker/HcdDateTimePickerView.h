@@ -18,8 +18,10 @@
 //
 //
 
-#define HEIGHT [UIScreen mainScreen].bounds.size.height
-#define WIDTH [UIScreen mainScreen].bounds.size.width
+#define kScreen_Height [UIScreen mainScreen].bounds.size.height
+#define kScreen_Width [UIScreen mainScreen].bounds.size.width
+
+#define kScaleFrom_iPhone5_Desgin(_X_) (_X_ * (kScreen_Width/320))
 
 #import <UIKit/UIKit.h>
 #import "MXSCycleScrollView.h"
