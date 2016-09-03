@@ -19,7 +19,7 @@
 //
 
 #define kTopViewHeight kScaleFrom_iPhone5_Desgin(44)
-#define kTimeBroadcastViewHeight kScaleFrom_iPhone5_Desgin(200)
+#define kTimeBroadcastViewHeight kScaleFrom_iPhone5_Desgin(220)
 #define kDatePickerHeight (kTopViewHeight + kTimeBroadcastViewHeight)
 #define kOKBtnTag 101
 #define kCancleBtnTag 100
