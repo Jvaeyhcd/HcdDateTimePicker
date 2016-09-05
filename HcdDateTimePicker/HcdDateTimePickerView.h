@@ -32,8 +32,9 @@ typedef enum {
     DatePickerDateTimeMode,
     DatePickerYearMonthMode,
     DatePickerMonthDayMode,
-    DatePickerHourMinuteMode
-}DatePickerMode;
+    DatePickerHourMinuteMode,
+    DatePickerDateHourMinuteMode
+} DatePickerMode;
 
 typedef void(^DatePickerCompleteAnimationBlock)(BOOL Complete);
 typedef void(^ClickedOkBtn)(NSString *dateTimeStr);

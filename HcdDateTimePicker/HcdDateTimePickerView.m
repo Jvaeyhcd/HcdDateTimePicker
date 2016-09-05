@@ -19,7 +19,7 @@
 //
 
 #define kTopViewHeight kScaleFrom_iPhone5_Desgin(44)
-#define kTimeBroadcastViewHeight kScaleFrom_iPhone5_Desgin(220)
+#define kTimeBroadcastViewHeight kScaleFrom_iPhone5_Desgin(200)
 #define kDatePickerHeight (kTopViewHeight + kTimeBroadcastViewHeight)
 #define kOKBtnTag 101
 #define kCancleBtnTag 100
@@ -172,6 +172,13 @@
         [self setHourScrollView];
         [self setMinuteScrollView];
     }
+    else if (self.datePickerMode == DatePickerDateHourMinuteMode) {
+        [self setYearScrollView];
+        [self setMonthScrollView];
+        [self setDayScrollView];
+        [self setHourScrollView];
+        [self setMinuteScrollView];
+    }
     
     [timeBroadcastView addSubview:topView];
     [timeBroadcastView setFrame:CGRectMake(0, kScreen_Height-100, kScreen_Width, kDatePickerHeight)];
@@ -185,6 +192,8 @@
         yearScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, kTopViewHeight, kScreen_Width*0.34, kTimeBroadcastViewHeight)];
     } else if (self.datePickerMode == DatePickerYearMonthMode) {
         yearScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, kTopViewHeight, kScreen_Width*0.5, kTimeBroadcastViewHeight)];
+    } else if (self.datePickerMode == DatePickerDateHourMinuteMode) {
+        yearScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, kTopViewHeight, kScreen_Width*0.28, kTimeBroadcastViewHeight)];
     }
     
     self.curYear = [self setNowTimeShow:0];
@@ -205,7 +214,10 @@
         monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(kScreen_Width*0, kTopViewHeight, kScreen_Width*0.5, kTimeBroadcastViewHeight)];
     } else if (self.datePickerMode == DatePickerYearMonthMode) {
         monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(kScreen_Width*0.5, kTopViewHeight, kScreen_Width*0.5, kTimeBroadcastViewHeight)];
+    } else if (self.datePickerMode == DatePickerDateHourMinuteMode) {
+        monthScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(kScreen_Width*0.28, kTopViewHeight, kScreen_Width*0.18, kTimeBroadcastViewHeight)];
     }
+    
     self.curMonth = [self setNowTimeShow:1];
     [monthScrollView setCurrentSelectPage:(self.curMonth-3)];
     monthScrollView.delegate = self;
@@ -222,7 +234,10 @@
         dayScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(kScreen_Width*0.67, kTopViewHeight, kScreen_Width*0.33, kTimeBroadcastViewHeight)];
     } else if (self.datePickerMode == DatePickerMonthDayMode) {
         dayScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(kScreen_Width*0.5, kTopViewHeight, kScreen_Width*0.5, kTimeBroadcastViewHeight)];
+    } else if (self.datePickerMode == DatePickerDateHourMinuteMode) {
+        dayScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(kScreen_Width*0.46, kTopViewHeight, kScreen_Width*0.18, kTimeBroadcastViewHeight)];
     }
+    
     self.curDay = [self setNowTimeShow:2];
     [dayScrollView setCurrentSelectPage:(self.curDay-3)];
     dayScrollView.delegate = self;
@@ -239,7 +254,10 @@
         hourScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, kTopViewHeight, kScreen_Width*0.34, kTimeBroadcastViewHeight)];
     } else if (self.datePickerMode == DatePickerHourMinuteMode) {
         hourScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(0, kTopViewHeight, kScreen_Width*0.5, kTimeBroadcastViewHeight)];
+    } else if (self.datePickerMode == DatePickerDateHourMinuteMode) {
+        hourScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(kScreen_Width*0.64, kTopViewHeight, kScreen_Width*0.18, kTimeBroadcastViewHeight)];
     }
+    
     self.curHour = [self setNowTimeShow:3];
     [hourScrollView setCurrentSelectPage:(self.curHour-2)];
     hourScrollView.delegate = self;
@@ -256,7 +274,10 @@
         minuteScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(kScreen_Width*0.34, kTopViewHeight, kScreen_Width*0.33, kTimeBroadcastViewHeight)];
     } else if (self.datePickerMode == DatePickerHourMinuteMode) {
         minuteScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(kScreen_Width*0.5, kTopViewHeight, kScreen_Width*0.5, kTimeBroadcastViewHeight)];
+    } else if (self.datePickerMode == DatePickerDateHourMinuteMode) {
+        minuteScrollView = [[MXSCycleScrollView alloc] initWithFrame:CGRectMake(kScreen_Width*0.82, kTopViewHeight, kScreen_Width*0.18, kTimeBroadcastViewHeight)];
     }
+    
     self.curMin = [self setNowTimeShow:4];
     [minuteScrollView setCurrentSelectPage:(self.curMin-2)];
     minuteScrollView.delegate = self;
@@ -626,6 +647,9 @@
                     break;
                 case DatePickerHourMinuteMode:
                     dateTimeStr = [NSString stringWithFormat:@"%02ld:%02ld",(long)self.curHour,(long)self.curMin];
+                    break;
+                case DatePickerDateHourMinuteMode:
+                    dateTimeStr = [NSString stringWithFormat:@"%ld-%ld-%ld %02ld:%02ld",(long)self.curYear,(long)self.curMonth,(long)self.curDay,(long)self.curHour,(long)self.curMin];
                     break;
                 default:
                     dateTimeStr = [NSString stringWithFormat:@"%ld-%ld-%ld %02ld:%02ld:%02ld",(long)self.curYear,(long)self.curMonth,(long)self.curDay,(long)self.curHour,(long)self.curMin,(long)self.curSecond];
