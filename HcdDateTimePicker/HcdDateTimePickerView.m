@@ -42,6 +42,13 @@
     NSString                    *dateTimeStr;
 }
 
+@property (nonatomic,assign) NSInteger curYear;//当前年
+@property (nonatomic,assign) NSInteger curMonth;//当前月
+@property (nonatomic,assign) NSInteger curDay;//当前日
+@property (nonatomic,assign) NSInteger curHour;//当前小时
+@property (nonatomic,assign) NSInteger curMin;//当前分
+@property (nonatomic,assign) NSInteger curSecond;//当前秒
+
 @property (nonatomic, retain) NSDate *defaultDate;
 
 @end
@@ -74,6 +81,22 @@
         [self setTimeBroadcastView];
     }
     return self;
+}
+
+- (void)setMaxYear:(NSInteger)maxYear {
+    _maxYear = maxYear;
+    [self updateYearScrollView];
+}
+- (void)setMinYear:(NSInteger)minYear {
+    _minYear = minYear;
+    [self updateYearScrollView];
+}
+
+- (void)updateYearScrollView {
+    [yearScrollView reloadData];
+    
+    [yearScrollView setCurrentSelectPage:(self.curYear-(_minYear+2))];
+    [self setAfterScrollShowView:yearScrollView andCurrentPage:1];
 }
 
 /*
@@ -197,7 +220,7 @@
     }
     
     self.curYear = [self setNowTimeShow:0];
-    [yearScrollView setCurrentSelectPage:(self.curYear-1902)];
+    [yearScrollView setCurrentSelectPage:(self.curYear-(_minYear+2))];
     yearScrollView.delegate = self;
     yearScrollView.datasource = self;
     [self setAfterScrollShowView:yearScrollView andCurrentPage:1];
@@ -325,6 +348,11 @@
 - (NSInteger)numberOfPages:(MXSCycleScrollView*)scrollView
 {
     if (scrollView == yearScrollView) {
+        
+        if (self.datePickerMode == DatePickerDateMode || self.datePickerMode == DatePickerDateTimeMode) {
+            return _maxYear - _minYear + 1;
+        }
+        
         return 299;
     }
     else if (scrollView == monthScrollView)
@@ -368,7 +396,7 @@
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, scrollView.bounds.size.width, scrollView.bounds.size.height/5)];
     l.tag = index+1;
     if (scrollView == yearScrollView) {
-        l.text = [NSString stringWithFormat:@"%ld年",(long)(1900+index)];
+        l.text = [NSString stringWithFormat:@"%ld年",(long)(_minYear+index)];
     }
     else if (scrollView == monthScrollView)
     {
@@ -471,7 +499,7 @@
     UILabel *minuteLabel = [[(UILabel*)[[minuteScrollView subviews] objectAtIndex:0] subviews] objectAtIndex:3];
     UILabel *secondLabel = [[(UILabel*)[[secondScrollView subviews] objectAtIndex:0] subviews] objectAtIndex:3];
     
-    NSInteger yearInt = yearLabel.tag + 1899;
+    NSInteger yearInt = yearLabel.tag + _minYear - 1;
     NSInteger monthInt = monthLabel.tag;
     NSInteger dayInt = dayLabel.tag;
     NSInteger hourInt = hourLabel.tag - 1;
@@ -491,7 +519,7 @@
     UILabel *secondLabel = [[(UILabel*)[[secondScrollView subviews] objectAtIndex:0] subviews] objectAtIndex:3];
     
     NSInteger month = monthLabel.tag;
-    NSInteger year = yearLabel.tag + 1899;
+    NSInteger year = yearLabel.tag + _minYear - 1;
     if (month != self.curMonth) {
         self.curMonth = month;
         [dayScrollView reloadData];

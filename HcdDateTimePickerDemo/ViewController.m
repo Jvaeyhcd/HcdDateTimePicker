@@ -98,6 +98,8 @@
     switch (tag) {
         case 1:
             dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerDateTimeMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:1000]];
+            [dateTimePickerView setMinYear:1990];
+            [dateTimePickerView setMaxYear:2016];
             dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
                 NSLog(@"%@", datetimeStr);
                 weakSelf.timeLbl.text = datetimeStr;
@@ -105,6 +107,8 @@
             break;
         case 2:
             dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerDateMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:1000]];
+            [dateTimePickerView setMinYear:1990];
+            [dateTimePickerView setMaxYear:2016];
             dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
                 NSLog(@"%@", datetimeStr);
                 weakSelf.timeLbl.text = datetimeStr;
