@@ -41,14 +41,11 @@ typedef void(^ClickedOkBtn)(NSString *dateTimeStr);
 
 @interface HcdDateTimePickerView : UIView <MXSCycleScrollViewDatasource,MXSCycleScrollViewDelegate>
 @property (nonatomic,strong) ClickedOkBtn clickedOkBtn;
-@property (nonatomic,assign) NSInteger curYear;//当前年
-@property (nonatomic,assign) NSInteger curMonth;//当前月
-@property (nonatomic,assign) NSInteger curDay;//当前日
-@property (nonatomic,assign) NSInteger curHour;//当前小时
-@property (nonatomic,assign) NSInteger curMin;//当前分
-@property (nonatomic,assign) NSInteger curSecond;//当前秒
 
 @property (nonatomic,assign) DatePickerMode datePickerMode;
+
+@property (nonatomic,assign) NSInteger maxYear;
+@property (nonatomic,assign) NSInteger minYear;
 
 -(instancetype)initWithDefaultDatetime:(NSDate*)dateTime;
 -(instancetype)initWithDatePickerMode:(DatePickerMode)datePickerMode defaultDateTime:(NSDate*)dateTime;
