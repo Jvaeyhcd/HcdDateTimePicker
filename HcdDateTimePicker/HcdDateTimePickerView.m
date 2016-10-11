@@ -613,13 +613,10 @@
 
 -(void)dismissBlock:(DatePickerCompleteAnimationBlock)block{
     
-    
-    typeof(self) __weak weak = self;
     CGFloat height = kDatePickerHeight;
     
     [UIView animateWithDuration:0.4f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
         
-        [weak setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0f]];
         [timeBroadcastView setFrame:CGRectMake(0, kScreen_Height, kScreen_Width, height)];
         
     } completion:^(BOOL finished) {
