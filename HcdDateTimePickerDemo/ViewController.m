@@ -98,6 +98,8 @@
     switch (tag) {
         case 1:
             dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerDateTimeMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:1000]];
+            dateTimePickerView.topViewColor = [UIColor greenColor];
+            dateTimePickerView.buttonTitleColor = [UIColor redColor];
             [dateTimePickerView setMinYear:1990];
             [dateTimePickerView setMaxYear:2016];
             dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
