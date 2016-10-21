@@ -64,6 +64,7 @@
             self.defaultDate = [NSDate date];
         }
         self.datePickerMode = DatePickerDateTimeMode;
+        [self initDatas];
         [self setTimeBroadcastView];
     }
     return self;
@@ -78,6 +79,7 @@
             self.defaultDate = [NSDate date];
         }
         self.datePickerMode = datePickerMode;
+        [self initDatas];
         [self setTimeBroadcastView];
     }
     return self;
@@ -108,6 +110,28 @@
 }
 */
 
+- (void)initDatas {
+    _topViewColor = [UIColor colorWithHexString:@"0x6271f3"];
+    _buttonTitleColor = [UIColor colorWithHexString:@"0xffffff"];
+}
+
+- (void)setTopViewColor:(UIColor *)topViewColor {
+    _topViewColor = topViewColor;
+    if (topView) {
+        topView.backgroundColor = topViewColor;
+    }
+}
+
+- (void)setButtonTitleColor:(UIColor *)buttonTitleColor {
+    _buttonTitleColor = buttonTitleColor;
+    if (okBtn) {
+        [okBtn setTitleColor:_buttonTitleColor forState:UIControlStateNormal];
+    }
+    if (cancleBtn) {
+        [cancleBtn setTitleColor:_buttonTitleColor forState:UIControlStateNormal];
+    }
+}
+
 #pragma mark -custompicker
 //设置自定义datepicker界面
 - (void)setTimeBroadcastView
@@ -121,12 +145,12 @@
     dateTimeStr = [dateFormatter stringFromDate:self.defaultDate];
     
     topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreen_Width, kTopViewHeight)];
-    topView.backgroundColor = [UIColor colorWithHexString:@"0x6271f3"];
+    topView.backgroundColor = _topViewColor;
     
     okBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreen_Width-60, 0, 60, kTopViewHeight)];
+    [okBtn setTitleColor:_buttonTitleColor forState:UIControlStateNormal];
     okBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [okBtn setBackgroundColor:[UIColor clearColor]];
-    [okBtn setTitleColor:[UIColor colorWithHexString:@"0xffffff"] forState:UIControlStateNormal];
     [okBtn setTitle:@"确定" forState:UIControlStateNormal];
     [okBtn addTarget:self action:@selector(selectedButtons:) forControlEvents:UIControlEventTouchUpInside];
     okBtn.tag = kOKBtnTag;
@@ -134,8 +158,8 @@
     
     cancleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, kTopViewHeight)];
     cancleBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [cancleBtn setTitleColor:_buttonTitleColor forState:UIControlStateNormal];
     [cancleBtn setBackgroundColor:[UIColor clearColor]];
-    [cancleBtn setTitleColor:[UIColor colorWithHexString:@"0xffffff"] forState:UIControlStateNormal];
     [cancleBtn setTitle:@"取消" forState:UIControlStateNormal];
     [cancleBtn addTarget:self action:@selector(selectedButtons:) forControlEvents:UIControlEventTouchUpInside];
     cancleBtn.tag = kCancleBtnTag;
