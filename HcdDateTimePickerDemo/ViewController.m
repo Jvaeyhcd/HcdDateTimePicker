@@ -111,6 +111,10 @@
             dateTimePickerView = [[HcdDateTimePickerView alloc] initWithDatePickerMode:DatePickerDateMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:1000]];
             [dateTimePickerView setMinYear:1990];
             [dateTimePickerView setMaxYear:2016];
+            
+            dateTimePickerView.title = @"出生日期";
+            dateTimePickerView.titleColor = [UIColor yellowColor];
+            
             dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
                 NSLog(@"%@", datetimeStr);
                 weakSelf.timeLbl.text = datetimeStr;

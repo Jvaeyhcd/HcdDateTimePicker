@@ -49,6 +49,9 @@ typedef void(^ClickedOkBtn)(NSString *dateTimeStr);
 
 @property (nonatomic,strong) UIColor *topViewColor;
 @property (nonatomic,strong) UIColor *buttonTitleColor;
+@property (nonatomic,strong) UIColor *titleColor;
+
+@property (nonatomic,weak  ) NSString *title;
 
 -(instancetype)initWithDefaultDatetime:(NSDate*)dateTime;
 -(instancetype)initWithDatePickerMode:(DatePickerMode)datePickerMode defaultDateTime:(NSDate*)dateTime;

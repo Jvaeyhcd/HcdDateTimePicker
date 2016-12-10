@@ -31,6 +31,7 @@
 {
     UIView                      *timeBroadcastView;//定时播放显示视图
     UIView                      *topView;
+    UILabel                     *titleLbl;
     MXSCycleScrollView          *yearScrollView;//年份滚动视图
     MXSCycleScrollView          *monthScrollView;//月份滚动视图
     MXSCycleScrollView          *dayScrollView;//日滚动视图
@@ -132,6 +133,17 @@
     }
 }
 
+- (void)setTitleColor:(UIColor *)titleColor
+{
+    _titleColor = titleColor;
+    titleLbl.textColor = _titleColor;
+}
+
+- (void)setTitle:(NSString *)title {
+    _title = title;
+    titleLbl.text = title;
+}
+
 #pragma mark -custompicker
 //设置自定义datepicker界面
 - (void)setTimeBroadcastView
@@ -165,8 +177,13 @@
     cancleBtn.tag = kCancleBtnTag;
     [self addSubview:cancleBtn];
     
+    titleLbl = [[UILabel alloc]initWithFrame:CGRectMake(60, 0, kScreen_Width - 120, kTopViewHeight)];
+    titleLbl.textAlignment = NSTextAlignmentCenter;
+    titleLbl.font = [UIFont systemFontOfSize:14];
+    
     [topView addSubview:okBtn];
     [topView addSubview:cancleBtn];
+    [topView addSubview:titleLbl];
     
     timeBroadcastView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, kTimeBroadcastViewHeight)];
     timeBroadcastView.backgroundColor = [UIColor redColor];
