@@ -194,15 +194,15 @@
     timeBroadcastView.layer.borderWidth = 0.0;
     timeBroadcastView.backgroundColor = [UIColor whiteColor];
     [self addSubview:timeBroadcastView];
-    UIView *beforeSepLine = [[UIView alloc] initWithFrame:CGRectMake(0, kTopViewHeight + floor(kTimeBroadcastViewHeight / 5), kScreen_Width, 1.5)];
+    UIView *beforeSepLine = [[UIView alloc] initWithFrame:CGRectMake(0, kTopViewHeight + floor(kTimeBroadcastViewHeight / 5), kScreen_Width, 0.5)];
     [beforeSepLine setBackgroundColor:[UIColor colorWithHexString:@"0xEDEDED"]];
     [timeBroadcastView addSubview:beforeSepLine];
     UIView *middleSepView = [[UIView alloc] initWithFrame:CGRectMake(0, kTopViewHeight + 2 * floor(kTimeBroadcastViewHeight / 5), kScreen_Width, floor(kTimeBroadcastViewHeight / 5))];
     [middleSepView setBackgroundColor:[UIColor colorWithHexString:@"0xEDEDED"]];
     [timeBroadcastView addSubview:middleSepView];
-    middleSepView.layer.borderWidth = 1.5;
+    middleSepView.layer.borderWidth = 0.5;
     middleSepView.layer.borderColor = [UIColor colorWithHexString:@"0xEDEDED"].CGColor;
-    UIView *bottomSepLine = [[UIView alloc] initWithFrame:CGRectMake(0, kTopViewHeight + 4 * floor(kTimeBroadcastViewHeight / 5), kScreen_Width, 1.5)];
+    UIView *bottomSepLine = [[UIView alloc] initWithFrame:CGRectMake(0, kTopViewHeight + 4 * floor(kTimeBroadcastViewHeight / 5), kScreen_Width, 0.5)];
     [bottomSepLine setBackgroundColor:[UIColor colorWithHexString:@"0xEDEDED"]];
     [timeBroadcastView addSubview:bottomSepLine];
     
@@ -654,13 +654,10 @@
 
 -(void)dismissBlock:(DatePickerCompleteAnimationBlock)block{
     
-    
-    typeof(self) __weak weak = self;
     CGFloat height = kDatePickerHeight;
     
     [UIView animateWithDuration:0.4f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
         
-        [weak setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0f]];
         [timeBroadcastView setFrame:CGRectMake(0, kScreen_Height, kScreen_Width, height)];
         
     } completion:^(BOOL finished) {
