@@ -19,7 +19,7 @@
 //
 
 #define kTopViewHeight kScaleFrom_iPhone5_Desgin(44)
-#define kTimeBroadcastViewHeight kScaleFrom_iPhone5_Desgin(200)
+#define kTimeBroadcastViewHeight kScaleFrom_iPhone5_Desgin(201)
 #define kDatePickerHeight (kTopViewHeight + kTimeBroadcastViewHeight)
 #define kOKBtnTag 101
 #define kCancleBtnTag 100
@@ -194,15 +194,15 @@
     timeBroadcastView.layer.borderWidth = 0.0;
     timeBroadcastView.backgroundColor = [UIColor whiteColor];
     [self addSubview:timeBroadcastView];
-    UIView *beforeSepLine = [[UIView alloc] initWithFrame:CGRectMake(0, kTopViewHeight + (kTimeBroadcastViewHeight / 5), kScreen_Width, 1.5)];
+    UIView *beforeSepLine = [[UIView alloc] initWithFrame:CGRectMake(0, kTopViewHeight + floor(kTimeBroadcastViewHeight / 5), kScreen_Width, 1.5)];
     [beforeSepLine setBackgroundColor:[UIColor colorWithHexString:@"0xEDEDED"]];
     [timeBroadcastView addSubview:beforeSepLine];
-    UIView *middleSepView = [[UIView alloc] initWithFrame:CGRectMake(0, kTopViewHeight + 2 * (kTimeBroadcastViewHeight / 5), kScreen_Width, kTimeBroadcastViewHeight / 5)];
+    UIView *middleSepView = [[UIView alloc] initWithFrame:CGRectMake(0, kTopViewHeight + 2 * floor(kTimeBroadcastViewHeight / 5), kScreen_Width, floor(kTimeBroadcastViewHeight / 5))];
     [middleSepView setBackgroundColor:[UIColor colorWithHexString:@"0xEDEDED"]];
     [timeBroadcastView addSubview:middleSepView];
     middleSepView.layer.borderWidth = 1.5;
     middleSepView.layer.borderColor = [UIColor colorWithHexString:@"0xEDEDED"].CGColor;
-    UIView *bottomSepLine = [[UIView alloc] initWithFrame:CGRectMake(0, kTopViewHeight + 4 * (kTimeBroadcastViewHeight / 5), kScreen_Width, 1.5)];
+    UIView *bottomSepLine = [[UIView alloc] initWithFrame:CGRectMake(0, kTopViewHeight + 4 * floor(kTimeBroadcastViewHeight / 5), kScreen_Width, 1.5)];
     [bottomSepLine setBackgroundColor:[UIColor colorWithHexString:@"0xEDEDED"]];
     [timeBroadcastView addSubview:bottomSepLine];
     

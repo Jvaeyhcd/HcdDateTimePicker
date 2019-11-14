@@ -21,7 +21,7 @@
 #define kScreen_Height [UIScreen mainScreen].bounds.size.height
 #define kScreen_Width [UIScreen mainScreen].bounds.size.width
 
-#define kScaleFrom_iPhone5_Desgin(_X_) (_X_ * (kScreen_Width/320))
+#define kScaleFrom_iPhone5_Desgin(_X_) floor(_X_ * (kScreen_Width/320))
 
 #import <UIKit/UIKit.h>
 #import "MXSCycleScrollView.h"
@@ -40,7 +40,7 @@ typedef void(^DatePickerCompleteAnimationBlock)(BOOL Complete);
 typedef void(^ClickedOkBtn)(NSString *dateTimeStr);
 
 @interface HcdDateTimePickerView : UIView <MXSCycleScrollViewDatasource,MXSCycleScrollViewDelegate>
-@property (nonatomic,strong) ClickedOkBtn clickedOkBtn;
+@property (nonatomic,copy  ) ClickedOkBtn clickedOkBtn;
 
 @property (nonatomic,assign) DatePickerMode datePickerMode;
 
@@ -51,7 +51,7 @@ typedef void(^ClickedOkBtn)(NSString *dateTimeStr);
 @property (nonatomic,strong) UIColor *buttonTitleColor;
 @property (nonatomic,strong) UIColor *titleColor;
 
-@property (nonatomic,weak  ) NSString *title;
+@property (nonatomic,copy  ) NSString *title;
 
 -(instancetype)initWithDefaultDatetime:(NSDate*)dateTime;
 -(instancetype)initWithDatePickerMode:(DatePickerMode)datePickerMode defaultDateTime:(NSDate*)dateTime;
