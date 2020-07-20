@@ -1,26 +1,16 @@
 //
-//  ____    ___   _        ___  _____  ____  ____  ____
-// |    \  /   \ | T      /  _]/ ___/ /    T|    \|    \
-// |  o  )Y     Y| |     /  [_(   \_ Y  o  ||  o  )  o  )
-// |   _/ |  O  || l___ Y    _]\__  T|     ||   _/|   _/
-// |  |   |     ||     T|   [_ /  \ ||  _  ||  |  |  |
-// |  |   l     !|     ||     T\    ||  |  ||  |  |  |
-// l__j    \___/ l_____jl_____j \___jl__j__jl__j  l__j
-//
-//
-//	Powered by Polesapp.com
-//
-//
-//  RBCustomDatePickerView.m
-//
-//
-//  Created by fangmi-huangchengda on 15/10/21.
+//  Created by Jvaeyhcd on 15/10/21.
 //
 //
 
+//屏幕的宽高
+#define isIPhopeX ((kScreen_Height == 812.f || kScreen_Width == 812.f || kScreen_Width == 896.f || kScreen_Height == 896.f) ? YES : NO)
+
+#define kSafeBottomMargin      (isIPhopeX ? 34.f : 0.f)
+
 #define kTopViewHeight kScaleFrom_iPhone5_Desgin(44)
 #define kTimeBroadcastViewHeight kScaleFrom_iPhone5_Desgin(201)
-#define kDatePickerHeight (kTopViewHeight + kTimeBroadcastViewHeight)
+#define kDatePickerHeight (kTopViewHeight + kTimeBroadcastViewHeight + kSafeBottomMargin)
 #define kOKBtnTag 101
 #define kCancleBtnTag 100
 
@@ -130,6 +120,36 @@
     }
     if (cancleBtn) {
         [cancleBtn setTitleColor:_buttonTitleColor forState:UIControlStateNormal];
+    }
+}
+
+
+- (void)setCancleColor:(UIColor *)cancleColor {
+    
+    _cancleColor = cancleColor;
+    if (cancleBtn) {
+        [cancleBtn setTitleColor:_cancleColor forState:UIControlStateNormal];
+    }
+}
+
+- (void)setCancleText:(NSString *)cancleText {
+    _cancleText = cancleText;
+    if (cancleBtn) {
+        [cancleBtn setTitle:_cancleText forState:UIControlStateNormal];
+    }
+}
+
+- (void)setOkColor:(UIColor *)okColor {
+    _okColor = okColor;
+    if (okBtn) {
+        [okBtn setTitleColor:_okColor forState:UIControlStateNormal];
+    }
+}
+
+- (void)setOkText:(NSString *)okText {
+    _okText = okText;
+    if (okBtn) {
+        [okBtn setTitle:_okText forState:UIControlStateNormal];
     }
 }
 
@@ -437,38 +457,46 @@
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, scrollView.bounds.size.width, scrollView.bounds.size.height/5)];
     l.tag = index+1;
     if (scrollView == yearScrollView) {
-        l.text = [NSString stringWithFormat:@"%ld年",(long)(_minYear+index)];
+        l.text = [NSString stringWithFormat:@"%ld",(long)(_minYear+index)];
     }
     else if (scrollView == monthScrollView)
     {
-        l.text = [NSString stringWithFormat:@"%ld月",(long)(1+index)];
+        if (index + 1 < 10) {
+            l.text = [NSString stringWithFormat:@"0%ld",(long)(1 + index)];
+        } else {
+            l.text = [NSString stringWithFormat:@"%ld",(long)(1 + index)];
+        }
     }
     else if (scrollView == dayScrollView)
     {
-        l.text = [NSString stringWithFormat:@"%ld日",(long)(1+index)];
+        if (index + 1 < 10) {
+            l.text = [NSString stringWithFormat:@"0%ld",(long)(1 + index)];
+        } else {
+            l.text = [NSString stringWithFormat:@"%ld",(long)(1 + index)];
+        }
     }
     else if (scrollView == hourScrollView)
     {
         if (index < 10) {
-            l.text = [NSString stringWithFormat:@"0%ld时",(long)index];
+            l.text = [NSString stringWithFormat:@"0%ld",(long)index];
         }
         else
-            l.text = [NSString stringWithFormat:@"%ld时",(long)index];
+            l.text = [NSString stringWithFormat:@"%ld",(long)index];
     }
     else if (scrollView == minuteScrollView)
     {
         if (index < 10) {
-            l.text = [NSString stringWithFormat:@"0%ld分",(long)index];
+            l.text = [NSString stringWithFormat:@"0%ld",(long)index];
         }
         else
-            l.text = [NSString stringWithFormat:@"%ld分",(long)index];
+            l.text = [NSString stringWithFormat:@"%ld",(long)index];
     }
     else
         if (index < 10) {
-            l.text = [NSString stringWithFormat:@"0%ld秒",(long)index];
+            l.text = [NSString stringWithFormat:@"0%ld",(long)index];
         }
         else
-            l.text = [NSString stringWithFormat:@"%ld秒",(long)index];
+            l.text = [NSString stringWithFormat:@"%ld",(long)index];
     
     l.font = [UIFont systemFontOfSize:12];
     l.textAlignment = NSTextAlignmentCenter;
@@ -658,6 +686,7 @@
     
     [UIView animateWithDuration:0.4f delay:0 usingSpringWithDamping:0.8f initialSpringVelocity:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
         
+        [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0f]];
         [timeBroadcastView setFrame:CGRectMake(0, kScreen_Height, kScreen_Width, height)];
         
     } completion:^(BOOL finished) {
@@ -697,7 +726,7 @@
             
             switch (self.datePickerMode) {
                 case DatePickerDateMode:
-                    dateTimeStr = [NSString stringWithFormat:@"%ld-%ld-%ld",(long)self.curYear,(long)self.curMonth,(long)self.curDay];
+                    dateTimeStr = [NSString stringWithFormat:@"%ld-%02ld-%02ld",(long)self.curYear,(long)self.curMonth,(long)self.curDay];
                     break;
                 case DatePickerTimeMode:
                     dateTimeStr = [NSString stringWithFormat:@"%02ld:%02ld:%02ld",(long)self.curHour,(long)self.curMin,(long)self.curSecond];
